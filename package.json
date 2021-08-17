@@ -1,0 +1,11 @@
+{
+  "name": "nodejs_curso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "\u001b[A\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C \"proyecto curso nodejs\"\u001b[B",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"Horacio Maldonado Hernandez\"\u001b[A\u001b[A\u001b[A\u001b[B\u001b[B\u001b[B",
+  "license": "ISC"
+}
