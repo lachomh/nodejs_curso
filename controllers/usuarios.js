@@ -5,8 +5,8 @@ const usuariosGet = (req = request, res = response) => {
 };
 
 const usuariosPost = (req = request, res = response) => {
-  const {npmbre,apellido,edad,email} = req.body;
-  res.status(201).json({ msg: "Hola gente en  POST", npmbre});
+  const {nombre,apellido,edad,email} = req.body;
+  res.status(201).json({ msg: "Hola gente en  POST", apellido});
 };
 
 const usuariosPut = (req = request, res = response) => {
