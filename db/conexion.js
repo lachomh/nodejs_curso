@@ -6,8 +6,10 @@ const config = {
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
     connectionLimit: process.env.CONN_LIMIT,
-};
-
-const pool = mariadb.createPool(config);
-
-module.exports = pool;
+  };
+  
+  console.log(config);
+  
+  const pool = mariadb.createPool(config);
+  
+  module.exports = pool;
