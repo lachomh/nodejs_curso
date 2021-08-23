@@ -25,6 +25,7 @@ const usuariosQueries = {
       usuarios
     SET
       nombre=?,
+      password=?,
       status=?
     WHERE
       email=?
@@ -47,6 +48,14 @@ const usuariosQueries = {
     AND
       status=1
   `,
+  usuariocontra2: `
+  UPDATE
+     usuarios
+  SET
+     password=?
+  WHERE
+     email=?
+`,
 };
 
 module.exports = usuariosQueries;

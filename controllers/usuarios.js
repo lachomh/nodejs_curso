@@ -63,7 +63,7 @@ const usuariosPost = async (req = request, res = response) => {
 
 const usuariosPut = async (req = request, res = response) => {
   const { email }= req.query;
-  const { nombre, status} = req.body;
+  const { nombre,password, status} = req.body;
   
   let conn;
 
@@ -72,6 +72,7 @@ const usuariosPut = async (req = request, res = response) => {
 
     const usuarios = await conn.query(usuariosQueries.updateUsuario, [
       nombre,
+      password,
       status,
       email,
     ]);
@@ -136,4 +137,23 @@ const usuarioSignin = async (req = request, res = response) => {
 };
 
 // tarea: hacer un endpoint para actualizar la contraseña
-module.exports = { usuariosGet, usuariosPost, usuariosPut, usuariosDelete, usuarioSignin,};
+
+const usuarioUpgrade = async (req = request, res = response) => {
+  const { email }= req.query;
+  const { password} = req.body;
+    let conn;
+  try {
+    conn = await pool.getConnection();
+        const usuarios = await conn.query(usuariosQueries.usuariocontra2, [password, email,]);
+        res.json ({ msg: `La nueva contraseña es ${password}.`  });
+        res.json({usuarios});
+      } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Favor de contactar al administrador.", error});
+  } finally {
+    if (conn) conn.end();
+  }
+};
+
+module.exports = { usuariosGet, usuariosPost, usuariosPut, usuariosDelete, usuarioSignin,usuarioUpgrade};
+
